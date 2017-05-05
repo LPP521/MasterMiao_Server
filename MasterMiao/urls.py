@@ -16,10 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from apis import record
+from apis import add
+from apis import alter
+from apis import query
+from views import display
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^record', record.record),
-    url(r'^query', record.query),
+    url(r'^record', add.record),
+    url(r'^query', query.query),
+    url(r'^show', display.show),
+    url(r'^delete', alter.delete),
 ]

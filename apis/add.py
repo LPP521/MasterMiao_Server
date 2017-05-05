@@ -29,17 +29,3 @@ def record(request):
     return HttpResponse('Success')
 
 
-def query(request):
-    if request.method != 'GET':
-        return HttpResponseNotFound()
-    if not 'filter' in request.GET:
-        return HttpResponseNotFound()
-    if request.GET['filter'] == 'all':
-        locations = LocationLog.objects.all()
-        response = ''
-        for loc in locations:
-            response += loc.date + ' '
-            response += loc.latitude + ' '
-            response += loc.longitude + '\n'
-        return HttpResponse(response)
-    return HttpResponseNotFound
