@@ -24,7 +24,9 @@ SECRET_KEY = '2ilzzhn+5g5p1v6t-4zspm^gai2)_+$w9b(_l((+90bti%argk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'miao.shellemon.com'
+]
 
 # Application definition
 

@@ -83,7 +83,7 @@
 
     function refresh() {
         $.ajax({
-            url: 'http://127.0.0.1:8000/query?filter=all',
+            url: '/query?filter=all',
             dataType: 'json',
             async: false,
             success: function(obj) {

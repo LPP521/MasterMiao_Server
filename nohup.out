@@ -1,0 +1,73 @@
+[11/May/2017 12:10:44] "GET /show HTTP/1.1" 200 3815
+[11/May/2017 12:13:07] "GET /show HTTP/1.1" 200 3799
+[11/May/2017 12:13:37] "GET /show HTTP/1.1" 200 3794
+[11/May/2017 12:13:39] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:40] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:42] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:43] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:45] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:46] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:48] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:49] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:51] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:51] "GET /show HTTP/1.1" 200 3794
+[11/May/2017 12:13:53] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:55] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:56] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:13:59] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:00] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:02] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:03] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:05] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:06] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:08] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:09] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:11] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:12] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:14] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:15] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:17] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:18] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:20] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:25] "GET /query?filter=all HTTP/1.1" 200 17
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1447: RuntimeWarning: DateTimeField LocationLog.date received a naive datetime (2017-05-11 12:14:32.743621) while time zone support is active.
+  RuntimeWarning)
+[11/May/2017 12:14:32] "GET /record?longitude=103.93444444&latitude=30.76444444 HTTP/1.1" 200 7
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1447: RuntimeWarning: DateTimeField LocationLog.date received a naive datetime (2017-05-11 12:14:38.120063) while time zone support is active.
+  RuntimeWarning)
+[11/May/2017 12:14:38] "GET /record?longitude=103.93444444&latitude=30.765555555 HTTP/1.1" 200 7
+[11/May/2017 12:14:39] "GET /query?filter=all HTTP/1.1" 200 215
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1447: RuntimeWarning: DateTimeField LocationLog.date received a naive datetime (2017-05-11 12:14:46.875342) while time zone support is active.
+  RuntimeWarning)
+[11/May/2017 12:14:46] "GET /record?longitude=103.93555555&latitude=30.765555555 HTTP/1.1" 200 7
+/usr/local/lib/python3.5/dist-packages/django/db/models/fields/__init__.py:1447: RuntimeWarning: DateTimeField LocationLog.date received a naive datetime (2017-05-11 12:14:54.879458) while time zone support is active.
+  RuntimeWarning)
+[11/May/2017 12:14:54] "GET /record?longitude=103.93555555&latitude=30.766666666 HTTP/1.1" 200 7
+[11/May/2017 12:14:56] "GET /query?filter=all HTTP/1.1" 200 215
+[11/May/2017 12:14:56] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:58] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:14:59] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:01] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:02] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:04] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:05] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:07] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:08] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:10] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:11] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:13] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:14] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:16] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:17] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:19] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:20] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:22] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:23] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:25] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:26] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:28] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:29] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:31] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:32] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:34] "GET /query?filter=all HTTP/1.1" 200 17
+[11/May/2017 12:15:35] "GET /query?filter=all HTTP/1.1" 200 17
