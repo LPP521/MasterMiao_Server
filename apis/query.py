@@ -18,5 +18,9 @@ def query(request):
                 'latitude': '%.11f'%loc.latitude,
                 'longitude': '%.11f'%loc.longitude
             })
+        if not 'delete' in request.GET:
+            locations.delete()
+        elif request.GET['delete'] == '1':
+            locations.delete()
         return JsonResponse({'n': len(location_list), 'l': location_list})
     return HttpResponseNotFound

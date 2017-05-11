@@ -21,9 +21,32 @@
 </body>
 <script type="text/javascript">
 
-    function translateFromAPI(points) {
+    function translateFromAPI(points, convertor) {
+        console.log('original points:');
+        console.log(points);
+
+        var finished = false;
+        convertor.translate(points, 1, 5, function (data) {
+            if (data.status === 0) {
+                console.log('translate success.')
+            } else {
+                console.log('translate failed.')
+            }
+            finished = true;
+        });
+
+        t = setTimeout(function () {
+            if (finished) {
+                clearTimeout(t);
+            }
+        }, 1000);
+        console.log('translated points:');
+        console.log(points);
+        return points;
+        return;
+
         translateUrl = 'http://api.map.baidu.com/geoconv/v1/?coords=';
-{#        console.log('length is '+points.length);#}
+        {#        console.log('length is '+points.length);#}
         for (var index in points) {
             point = points[index];
             translateUrl += point.lng+','+point.lat;
@@ -49,23 +72,14 @@
                 }
             }
         });
-        t = setTimeout(function() {
-            if (finished) {
-                clearTimeout(t);
-            }
-        }, 500);
-        return points;
-    }
-
-    function translate(points) {
-
     }
 
     var map = new BMap.Map("allmap");
     map.setCurrentCity("成都");
     map.addControl(new BMap.MapTypeControl());
     map.enableScrollWheelZoom(true);
-    point = null;
+    var point = null;
+    var convertor = new BMap.Convertor();
 
     function refresh() {
         $.ajax({
@@ -73,27 +87,32 @@
             dataType: 'json',
             async: false,
             success: function(obj) {
-                console.log(obj);
+                {#                console.log(obj);#}
                 var points = Array();
-                for (var index in obj.l) {
-                    points.push(new BMap.Point(obj.l[index].longitude, obj.l[index].latitude));
-                    console.log(points[index]);
+                for (var i in obj.l) {
+                    points.push(new BMap.Point(obj.l[i].longitude, obj.l[i].latitude));
+                    {#                    console.log(points[index]);#}
                 }
-                points = translateFromAPI(points);
-                if (point != null) {
+                if (points.length !== 0) {
+                    points = translateFromAPI(points, convertor);
+                }
+                if (point !== null) {
                     points.unshift(point);
                 } else {
                     map.centerAndZoom(points[0], 15);
                 }
-                for (var index in points) {
+                for (var j in points) {
 {#                    console.log(points[index]);#}
-                    map.addOverlay(new BMap.Marker(points[index]));
+                    map.addOverlay(new BMap.Marker(points[j]));
                 }
                 map.addOverlay(new BMap.Polyline(points, {
                     strokeColor: "blue",
                     strokeWeight: 2,
                     strokeOpacity: 0.5
-                }))
+                }));
+                if (points.length !== 0) {
+                    point = points[points.length - 1];
+                }
             }
         });
     }
