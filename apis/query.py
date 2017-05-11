@@ -15,8 +15,8 @@ def query(request):
         for loc in locations:
             location_list.append({
                 'time': loc.date,
-                'latitude': loc.latitude,
-                'longitude': loc.longitude
+                'latitude': '%.11f'%loc.latitude,
+                'longitude': '%.11f'%loc.longitude
             })
         return JsonResponse({'n': len(location_list), 'l': location_list})
     return HttpResponseNotFound

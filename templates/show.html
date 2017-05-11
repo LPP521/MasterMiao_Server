@@ -20,31 +20,84 @@
 <div id="allmap"></div>
 </body>
 <script type="text/javascript">
+
+    function translateFromAPI(points) {
+        translateUrl = 'http://api.map.baidu.com/geoconv/v1/?coords=';
+{#        console.log('length is '+points.length);#}
+        for (var index in points) {
+            point = points[index];
+            translateUrl += point.lng+','+point.lat;
+            if (index != points.length-1) {
+                translateUrl += ';'
+            }
+        }
+        ak = '3ioFnmvf9bEw3NLYW7AFRcfjdg6HGGDx';
+        ak = '1P8u9vyYq3IDxrUKv0mIQxNg3GliEbcW';
+        translateUrl += '&from=1&to=5&ak='+ak+'&output=json';
+        console.log('translateFromAPI request is '+translateUrl);
+        finished = false;
+        $.ajax({
+            url: translateUrl,
+            type: 'GET',
+            datatype: 'jsonp',
+            crossDomain: true,
+            success: function (obj) {
+                for (var index in points) {
+                    points[index].lng = obj.result[index].x;
+                    points[index].lat = obj.result[index].y;
+                    finished = true;
+                }
+            }
+        });
+        t = setTimeout(function() {
+            if (finished) {
+                clearTimeout(t);
+            }
+        }, 500);
+        return points;
+    }
+
+    function translate(points) {
+
+    }
+
     var map = new BMap.Map("allmap");
     map.setCurrentCity("成都");
     map.addControl(new BMap.MapTypeControl());
     map.enableScrollWheelZoom(true);
-    $.getJSON('http://127.0.0.1:8000/query?filter=all', function (obj) {
-        var points = Array();
-        for (var index in obj.l) {
-            points.push(new BMap.Point(obj.l[index].longitude, obj.l[index].latitude));
-            console.log(points[index]);
-        }
+    point = null;
 
-        translateCallback = function (data) {
-            if (data.status === 0) {
-                map.centerAndZoom(points[0], 15);
-                for (var index in points) {
+    function refresh() {
+        $.ajax({
+            url: 'http://127.0.0.1:8000/query?filter=all',
+            dataType: 'json',
+            async: false,
+            success: function(obj) {
+                console.log(obj);
+                var points = Array();
+                for (var index in obj.l) {
+                    points.push(new BMap.Point(obj.l[index].longitude, obj.l[index].latitude));
                     console.log(points[index]);
+                }
+                points = translateFromAPI(points);
+                if (point != null) {
+                    points.unshift(point);
+                } else {
+                    map.centerAndZoom(points[0], 15);
+                }
+                for (var index in points) {
+{#                    console.log(points[index]);#}
                     map.addOverlay(new BMap.Marker(points[index]));
                 }
-                map.addOverlay(new BMap.Polyline(points, {strokeColor: "blue", strokeWeight: 2, strokeOpacity: 0.5}))
-            } else {
-                console.log(data);
+                map.addOverlay(new BMap.Polyline(points, {
+                    strokeColor: "blue",
+                    strokeWeight: 2,
+                    strokeOpacity: 0.5
+                }))
             }
-        };
-        var convertor = new BMap.Convertor();
-        convertor.translate(points, 1, 5, translateCallback)
-    });
+        });
+    }
+
+    setInterval(refresh, 1500);
 </script>
 </html>
